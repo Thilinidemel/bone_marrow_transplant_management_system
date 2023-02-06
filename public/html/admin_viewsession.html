@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <link rel="stylesheet" href="../../public/css/admin_viewsession.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <h2>
+                Campaign Manage
+            </h2>
+            <div class="search-wrapper">
+                <span class='bx bx-search'></span>
+                <input type="search" placeholder="search here">
+            </div>
+    
+           
+    
+            
+            <div class="box-icon">
+                <div class="item">
+                    <span class="material-icons">notifications</span>
+                </div>
+                <div class="item">
+                    <span class="material-icons">chat_bubble</span>
+                </div>
+                
+            </div>
+           
+            
+            <div class="user-wrapper">
+                <img src="../../public/images/Xiao_Zhan.jpeg" alt="profile_pictire" width="50px" height="50px" >
+                <div> <h4>Welcome! </h4><?php echo $_SESSION['user_name'];?></div>
+            </div>
+        </header>
+    
+        <main>
+
+            <div class="cards-2">
+                <div class="card-single-2">
+                    <div class="title">
+                        <h3>Awareness Campaigns</h3>
+                        <a href="../../public/html/admin_create_campaign.html" class="update-btn"> + Create New Campaign
+                        </a>
+                    </div>
+                        <table>
+                            <tr>
+                                <th>Campaign Name</th>
+                                <th> Conducting Hospital</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>Introduction About SLBTMS </td>
+                                <td>Colombo General Hospital<br>
+                                    Apeksha Hospital<br>
+                                    Lanka Hospital<br>
+                                </td>
+                                <td>2022-12-24<br>
+                                    2022-12-26<br>
+                                    2022-12-24<br></td>
+                                    <td>10.00 a.m<br>
+                                        10.00 a.m<br>
+                                        11.00 a.m<br></td>
+                                        <td><a href="#" class="btn">View More</a></td>
+                            </tr>
+                            <tr>
+                                <td>Promoting Society About <br>br>Boan Marrow Transplant </td>
+                                <td>Anuradhapura General Hospital<br>
+                                    Apeksha Hospital<br>
+                                    Lanka Hospital<br>
+                                </td>
+                                <td>2022-12-29<br>
+                                    2022-12-29<br>
+                                    2022-12-28<br></td>
+                                    <td>10.00 a.m<br>
+                                        10.00 a.m<br>
+                                        11.00 a.m<br></td>
+                                        <td><a href="#" class="btn">View More</a></td>
+                            </tr>
+                        </table>
+                </div>
+                </div>
+           
+        </main>
+   
+    </div>
+</body>
+</html>

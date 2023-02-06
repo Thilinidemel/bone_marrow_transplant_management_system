@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../public/css/hospital_add_clinicians.css?v=2">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Add Clinician</title>
+</head>
+<body>
+
+        <a class="back_btn" href="../../src/php/hospital_clinicians.php"><span class="material-icons">arrow_back</span>
+            Back to view list</a>
+
+    <div class="add_clinician">
+        <h1>Add New Clinician</h1>
+
+        <form action="../../src/php/hospital_add_clinicians.php" method="post" class="add_clinician_form">
+
+            <p>
+                <label for="">ID</label>
+                <input type="text" name="clinician_id">
+            </p>
+
+            <p>
+                <label for="">Name</label>
+                <input type="text" name="clinician_name" required>
+            </p>
+
+            <p>
+                <label for="">Email</label>
+                <input type="email" name="email" required>
+            </p>
+
+            <p>
+                <label for="">Telephone No</label>
+                <input type="text" name="telephone_no" required>
+            </p>
+
+            <p>
+                <label for="">Address</label>
+                <input type="text" name="address" required>
+            </p>
+
+            <p>
+                <label for="">Username</label>
+                <input type="text" name="user_name" required>
+            </p>
+
+            <p>
+                <label for="">Password</label>
+                <input type="password" name="password" required>
+            </p>
+
+            <p>
+                <label>&nbsp;</label>
+                <input type="submit" name="submit" value="submit" class="btn">
+            </p>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
