@@ -55,10 +55,10 @@ body{
     margin-left: 240px;
     margin-top: 30px;
     width: 80%;
-    height: 90%;
+    height: 600px;
     background-color: #f4f7fa;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -178,7 +178,7 @@ body{
 }
 
 h4{
-    font-size: 18px;
+    font-size: 17px;
     margin: 0;
     font-weight: bold;
     color: #006296;
@@ -201,7 +201,7 @@ table.list th{
     text-align: left;
     font-size: 16px;
     font-weight: bold;
-    height: 25px;
+    height: 20px;
 }
 
 table.list td{
@@ -293,7 +293,7 @@ table.list .delete:hover{
 }
 
 .pd tr{
-  height: 30px;
+  height: 23px;
   background: #D7F0ED;
   color: #006296;
 }
@@ -371,7 +371,7 @@ table.list .delete:hover{
 
 .dd th{
   text-align: center;
-  height: 50px;
+  height: 35px;
   color: #ffffff;
   background: #308C86;
 }
