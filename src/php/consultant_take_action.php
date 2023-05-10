@@ -1,7 +1,7 @@
 <?php require_once('consultant_navbar_appointment.php'); ?>
 <?php
 session_start();
-if (isset($_SESSION['username']))
+if($_SESSION['userlevel']=1)
 {
 include '../../config/connection.php';
 
@@ -35,9 +35,9 @@ if(isset($_POST['submit'])){
   $status=$_POST['status'];
   $remark=$_POST['remark'];
 
-    $sql="UPDATE appointments SET appointment_id=$appointment_id, patient_name=$patient_name, telephone_no='$telephone_no', email='$email', appointment_date='$appointment_date', appointment_time='$appointment_time', apply_date='$apply_date', status='$status', remark='$remark' WHERE appointment_id=$appointment_id";
-    $result=mysqli_query($connection,$sql);
-    if($result){
+    $sql0="UPDATE appointments SET appointment_id=$appointment_id, patient_name=$patient_name, telephone_no='$telephone_no', email='$email', appointment_date='$appointment_date', appointment_time='$appointment_time', apply_date='$apply_date', status='$status', remark='$remark' WHERE appointment_id=$appointment_id";
+    $result0=mysqli_query($connection,$sql0);
+    if($result0){
         header('location:consultant_appointments.php');
     }
     else{
