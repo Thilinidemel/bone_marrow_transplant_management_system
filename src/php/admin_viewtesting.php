@@ -9,6 +9,7 @@ if($_SESSION['userlevel']!=0)
     header("Location:admin_login.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,9 @@ if($_SESSION['userlevel']!=0)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Requests</title>
+
     <link rel="stylesheet" type="text/css" href="../../public/css/admin_viewtesting.css">
+    
 </head>
 <body>
    <!-- header  -->
@@ -32,11 +35,18 @@ if($_SESSION['userlevel']!=0)
     
            
     
-            
+
             <div class="box-icon">
                 <div class="item">
                     <span class="material-icons">notifications</span>
+                    <span class="not" id="notify">12</span>
                 </div>
+                
+
+
+
+
+</script>
                 <div class="item">
                     <span class="material-icons">chat_bubble</span>
                 </div>
@@ -53,60 +63,42 @@ if($_SESSION['userlevel']!=0)
     <main>
 <nav>
         <ul>
-        <li><a class="active" href="#">Pending Donor Testing</a> </li>
+        <li><a class="active" href="#">Testing Details</a> </li>
         <li><a href="admin_add_testing_report.php">Add Testing Report Details</a></li>
       </ul>
     </nav>
     <div class="cards-2">
             <div class="card-single-2"> 
                 <div class="title">
-                    <h3>Pending Donor Testing</h3>
+                    <h3>All Donor HLA Details</h3>
                 </div>
                 <table>
                     <tr>
                         <th>Donor ID</th>
-                        <th> Sample ID</th>
-                        <th>Requested Date</th>
+                        <th>Hospital ID</th>
                         <th>More Details</th>
                     </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>004</td>
-                        <td>12/19</td>
-                        <!-- <td style="color:#38fa11 ;">Qualified</td> -->
-                        <td><a href="#" class="btn">View More</a></td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>005</td>
-                        <td>12/19</td>
-                        <!-- <td style="color:#fa1111 ;">Disqualified</td> -->
-                        <td><a href="#" class="btn">View More</a></td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>006</td>
-                        <td>006</td>
-                        <td><a href="#" class="btn">View More</a></td>
-                    </tr>
-                    <tr>
-                        <td>004</td>
-                        <td>007</td>
-                        <td>12/19</td>
-                        <td><a href="#" class="btn">View More</a></td>
-                    </tr>
-                    <tr>
-                        <td>005</td>
-                        <td>008</td>
-                        <td>12/19</td>
-                        <td><a href="#" class="btn">View More</a></td>
-                    </tr>
-                    <tr>
-                        <td>006</td>
-                        <td>009</td>
-                        <td>12/19</td>
-                        <td><a href="#" class="btn">View More</a></td>
-                    </tr>
+                
+                    <?php 
+                       $sql1="SELECT pending_donor.`pending_donor_id`,pending_donor.`request_date`,testing.`hospital_id` FROM `pending_donor` INNER JOIN `testing` ON testing.`donor_id` = pending_donor.`pending_donor_id`";
+
+    $result=mysqli_query($connection,$sql1);
+    if($result){
+        while($row=mysqli_fetch_assoc($result)){
+            $id=$row['pending_donor_id'];
+            $date=$row['request_date'];
+            $hid=$row['hospital_id'];
+            echo '<tr>
+            <td >'.$id. '</td>
+            <td>'.$date. ' </td> 
+            <td>'.$hid. '</td>
+           <td><a href="../../src/php/admin_add_testing_report.php? id='.$id.'" class="btn">Add Test Result</a></td>
+           </tr>';
+   
+       }
+   }
+   
+   ?>
                 </table>
             </div>
             </main>

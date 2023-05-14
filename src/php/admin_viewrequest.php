@@ -55,6 +55,7 @@ if($_SESSION['userlevel']!=0)
         <ul>
         <li><a href="#">Pending Donor Test Request</a> </li>
         <li><a  class="active" href="../../src/php/admin_hospital_match_request.php" > Hospital Matching Request </a></li>
+        <li><a  class="active" href="../../src/php/admin_hospital_transplant_request.php" >Transplant Request </a></li>
       </ul>
     </nav>
     <div class="cards-2">
@@ -69,50 +70,30 @@ if($_SESSION['userlevel']!=0)
                         <th>Requested Date</th>
                         <th>More Details</th>
                     </tr>
-                    <tr>
-                        <td>Amila kumara</td>
-                        <td>Nugegoda</td>
-                        <td>12/19</td>
-                        <!-- <td style="color:#38fa11 ;">Qualified</td> -->
-                        <td><a href="../../src/php/admin_select_hospital.php" class="btn">Select Hospital</a></td>
-                    </tr>
-                    <tr>
-                        <td>Aruni siriwardena</td>
-                        <td>Colombo 07</td>
-                        <td>12/19</td>
-                        <!-- <td style="color:#fa1111 ;">Disqualified</td> -->
-                        <td><a href="../../src/php/admin_select_hospital_2.php" class="btn">Select Hospital</a></td>
-                    </tr>
-                    <tr>
-                        <td>kavinda karunathilaka</td>
-                        <td>Anuradhapura</td>
-                        <td>12/19</td>
-                        <td><a href="../../src/php/admin_select_hospital.php" class="btn">Select Hospital</a></td>
-                    </tr>
-                    <tr>
-                        <td>kamala Hansani</td>
-                        <td>Kegalle</td>
-                        <td>12/19</td>
-                        <td><a href="../../src/php/admin_select_hospital.php" class="btn">Select Hospital</a></td>
-                    </tr>
-                    <tr>
-                        <td>Kapila kumara</td>
-                        <td>Maharagama</td>
-                        <td>12/19</td>
-                        <td><a href="../../src/php/admin_select_hospital.php" class="btn">Select Hospial</a></td>
-                    </tr>
-                    <tr>
-                        <td>Ramani siriwardena</td>
-                        <td>Colombo 02</td>
-                        <td>12/19</td>
-                        <td><a href="../../src/php/admin_select_hospital.php" class="btn">Select Hospital</a></td>
-                    </tr>
+                    <?php 
+                        $sql="SELECT CONCAT_WS (' ',`first_name`,`second_name`) AS fullname,city,request_date,pending_donor_id from pending_donor";
+
+    $result=mysqli_query($connection,$sql);
+    if($result){
+        while($row=mysqli_fetch_assoc($result)){
+            $id=$row['pending_donor_id'];
+            $name=$row['fullname'];
+            $city=$row['city'];
+            $date=$row['request_date'];
+         echo '<tr>
+         <td >'.$name. '</td>
+         <td>'.$city. ' </td> 
+         <td>'.$date. '</td>
+        <td><a href="../../src/php/admin_select_hospital_2.php? id='.$id.'" class="btn">Select Hospital</a></td>
+        </tr>';
+
+    }
+}
+
+?>
                 </table>
             </div>
 
 </div>
-        
-    
-    
 </body>
 </html>
